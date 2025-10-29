@@ -1,0 +1,8 @@
+<div class="row"><div class="col-md-10"><h3>All Reminders</h3>
+<table class="table align-middle"><thead class="text-white" style="background:linear-gradient(90deg,#34a853,#1a73e8)"><tr><th>Email</th><th>Message</th><th>Scheduled Time</th><th>Status</th><th>Action</th></tr></thead><tbody>
+<% if (reminders.length===0) { %><tr><td colspan="5" class="text-center">No reminders</td></tr><% } else { %>
+<% reminders.forEach(function(r){ %>
+<tr><td><%= r.email || currentUser.email %></td><td><%= r.message %></td><td><%= new Date(r.scheduledTime).toLocaleString() %></td><td><span class="badge bg-success"><%= r.sent? 'Sent' : 'Pending' %></span></td>
+<td><% if (!r.sent) { %><form method="post" action="/reminders/<%= r._id %>/delete" style="display:inline"><button class="btn btn-sm btn-danger" onclick="return confirm('Delete?')">Delete</button></form><% } else { %><button class="btn btn-sm btn-secondary" disabled>Delete</button><% } %></td></tr>
+<% }) %><% } %></tbody></table></div></div>
+<script>setInterval(()=>{ if(window.location.pathname==='/reminders'){ window.location.reload(); } },1000);</script>

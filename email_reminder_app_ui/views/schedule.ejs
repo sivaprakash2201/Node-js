@@ -1,0 +1,11 @@
+<div class="row justify-content-center"><div class="col-md-8"><div class="card card-ghost p-4">
+<h3>Schedule Your Reminder</h3>
+<% if (typeof success !== 'undefined' && success) { %><div class="alert alert-success">Reminder scheduled</div><% } %>
+<% if (typeof error !== 'undefined' && error) { %><div class="alert alert-danger"><%= error %></div><% } %>
+<form method="post" action="/schedule">
+  <div class="mb-3"><label class="form-label">Send To (one or more emails, comma separated)</label><input name="email" type="text" class="form-control" placeholder="e.g. a@gmail.com, b@gmail.com"/></div>
+  <div class="mb-3"><label class="form-label">Message</label><textarea name="message" required class="form-control" rows="4"></textarea></div>
+  <div class="mb-3"><label class="form-label">Date & Time</label><input name="datetime" type="datetime-local" required class="form-control"/></div>
+  <button class="btn btn-gradient">Schedule Reminder</button>
+</form>
+</div></div></div>

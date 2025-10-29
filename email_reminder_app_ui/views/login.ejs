@@ -1,0 +1,10 @@
+<div class="row justify-content-center"><div class="col-md-6"><div class="card card-ghost p-4">
+<h3>Login</h3>
+<% if (typeof error !== 'undefined' && error) { %><div class="alert alert-danger"><%= error %></div><% } %>
+<form method="post" action="/login">
+  <div class="mb-3"><label class="form-label">Email</label><input name="email" type="email" required class="form-control"/></div>
+  <div class="mb-3 position-relative"><label class="form-label">Password</label><input id="password" name="password" type="password" required class="form-control"/><button type="button" class="btn btn-sm btn-outline-secondary position-absolute" style="right:10px; top:38px" onclick="togglePwd()">Show</button></div>
+  <button class="btn btn-gradient">Login</button>
+</form>
+</div></div></div>
+<script>function togglePwd(){ const e=document.getElementById('password'); e.type = e.type==='password' ? 'text' : 'password'; }</script>

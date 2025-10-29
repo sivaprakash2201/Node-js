@@ -1,0 +1,29 @@
+<div class="row justify-content-center"><div class="col-md-8"><div class="card card-ghost p-4 d-flex flex-row gap-3 align-items-center">
+<div style="flex:1">
+  <h3>Create an account</h3>
+  <% if (typeof error !== 'undefined' && error) { %><div class="alert alert-danger"><%= error %></div><% } %>
+  <form method="post" action="/register">
+    <div class="mb-3"><label class="form-label">Name</label><input name="name" class="form-control"/></div>
+    <div class="mb-3"><label class="form-label">Email</label><input name="email" type="email" required class="form-control"/></div>
+    <div class="mb-3 position-relative"><label class="form-label">Mail App Password (Gmail App Password)</label>
+      <input id="mailPass" name="mailPass" type="password" required class="form-control"/>
+      <button type="button" class="btn btn-sm btn-outline-secondary position-absolute" style="right:10px; top:38px" onclick="togglePassword('mailPass')">Show</button>
+      <div class="form-text">Stored encrypted. Used to send emails from your account.</div>
+    </div>
+    <div class="mb-3 position-relative"><label class="form-label">Login Password</label>
+      <input id="loginPassword" name="loginPassword" type="password" required class="form-control"/>
+      <button type="button" class="btn btn-sm btn-outline-secondary position-absolute" style="right:10px; top:38px" onclick="togglePassword('loginPassword')">Show</button>
+    </div>
+    <button class="btn btn-gradient">Register & Login</button>
+  </form>
+</div>
+<div style="width:300px">
+  <!-- Lottie animation -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_jcikwtux.json" background="transparent" speed="1" style="width:100%; height:300px;" loop autoplay></lottie-player>
+</div>
+</div></div></div>
+
+<script>
+function togglePassword(id){ const el=document.getElementById(id); if(el.type==='password'){ el.type='text'; } else { el.type='password'; } }
+</script>
